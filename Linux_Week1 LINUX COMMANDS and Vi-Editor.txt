@@ -1,0 +1,284 @@
+1) Basic Linux Commands: Test the function of each of the following:
+
+a) Online help:
+
+man (man pwd)
+Desc: Print the full filename of the current working directory. (-l, -p)
+Syn: pwd[option]...
+Ex: pwd
+Output: /home/mca215/230970031
+
+help (help pwd)
+Desc: Print the name of the current working directory. pwd [-LP]
+Options:
+-L : print the value of $pwd if it names the current working directory.
+-P : print the physical directory, without any symbolic links.
+By default, 'pwd' behaves as if '-L' were specified.
+
+b) Directory related commands:
+
+pwd
+Desc : Print the full filename of the current working directory.
+Syntax: pwd
+Ex: pwd
+Output: /home/mca215/230970031
+
+mkdir
+Desc: Create a new directory.
+Syn: mkdir directory_name
+Ex: mkdir 230970031
+Output: ls 
+230970031
+
+cd
+Desc: Change the shell working directory.
+Syn: cd ..
+Ex: cd ..
+Output: /home/mca215
+
+rmdir
+Desc: Removes an already present directory if its empty.
+Syn: rmdir directory_name
+Ex: rmdir 230970031
+Output: ls
+Null
+
+c) File related commands:
+
+ls
+Desc: Shows the list of all the existed files and folders.
+Syn: ls
+Ex: ls
+Output: 230970031 abc.out abc.cpp
+
+cp
+Desc: To copy the contents of one file to another.
+Syn: 
+- cp sourcefilename targetfilename [Enter]
+- cp filename(s) directoryname
+Ex: 
+- cp os.txt/home/
+- cp os.txt ../ ../
+Output: File will be copied.
+
+mv
+Desc: This command renames or moves files. It has two distinct functions: It renames a file or a directory and it moves a group of files to a different directory.
+Syn:
+- mv filename newfilename
+- mv file(s) directory
+Ex:
+- mv chap01 man01
+- mv chap01 chap02 chap03 progs
+- mv pis pos
+Output: File will be moved or renamed.
+
+rm
+Desc: This command deletes one or more files.
+Syn: rm filename(s)
+Ex: rm chap01 chap02 chap03 [Enter]
+Output: File will be removed.
+
+touch
+Desc: Change file timestamps. Update the access and modification times of each FILE to the current time. (-c, -h, -t, -d, -r)
+Syn: touch [option] ... FILE ...
+Ex: touch trial_Touch.txt
+Output: Null
+
+d) Others:
+
+who
+Desc: Linux is a system taht can be concurrently used by multiple users and to know the users who are using the system can be known by a who command.
+Syn: who
+Ex: who
+Output:
+mca217 pts/72 2024-01-04 10:49 (172.16.68.96)
+mca202 pts/72 2024-01-04 10:53 (172.16.68.162)
+mca200 pts/72 2024-01-04 10:57 (172.16.68.111)
+
+whoami
+Desc: Print effective userid. Print the user name associated with the current effective user ID. Same as id -un.
+Syn: whoami
+Ex: whoami
+Output: mca215
+
+whatis
+Desc: Display one-line manual page description.
+Syn: whatis [-dlv?v] [-r|-w] [-s list] [-m system[,...]] [-M path] [-L locale] [-C file] name ...
+Ex:
+- whatis ls
+- whatis whatis
+Output:
+- ls (1) - list directory contents
+- whatis (1) - display one-line manual page descriptions
+
+date
+Desc: This displays the current date as maintained in the internal clock run perpetually.
+Syn: date
+Ex: date
+Output: Thu, Jan 4, 2024 7:56:32 PM
+
+wc
+Desc: Displays the count of lines, words and characters in a file.
+Syn: wc [-c|-m|-c] [-l] [-w] [file ....]
+Ex: wc os.txt
+Output: 1 3 19 os.txt
+
+2) File and directory permissions:
+
+a) Users and ownership
+Desc: Each file and directory is associated with an owner. The owner has certain permissions to read, write, and execute the file or directory.
+Syn: ls -l <filename>
+Ex: ls -l file1.txt
+Output: -rw-r--r--+ 1 aakan UsersGrp 1434 Jan 7 13:04
+
+b) Groups and Changing group ownership
+Desc: Files and directories are also associated with a group. Users within the same group often share common permissions.
+Syn: chown : <newgroup> <filename>
+Ex: chown : developers file1.txt
+Output: No output will be displayed on successful execution.
+
+c) File permissions and Changing file permissions
+Desc: Each file and directory has three sets of permissions for the owner, group, and others: read(r), write(w), and execute(x). Permissions are represented by characters in the form of 'rwx'.
+Syn: chmod <permissions> <filename>
+Ex: chmod u+wx file1.txt
+Output: No output will be displayed on successful execution and the permissions will change.
+
+3) Additional and advanced linux commands:
+
+a) cat
+Desc: cat is a multipurpose command. Using this we can display a file, create a file as well as concatenate files vertically.
+Syn:
+- cat > filename [Enter] (to write in a file)
+- cat filename [Enter] (to display the file content)
+Ex:
+- cat > trial.txt
+- cat trial.txt
+Output:
+- Hi. Aakanxa here! [Ctrl+D]
+- Hi. Aakanxa here!
+
+echo
+Desc: is a command for displaying any string in the command prompt.
+Syn: echo "any_string"
+Ex: echo "Hello World"
+Output: Hello World
+
+b) Wildcards:
+
+*
+Desc: Displays any matching number of characters including none.
+Syn: ls [file/folder_name]*
+Ex: ls OOP_Week1*
+Output: OOP_Week1 OOP_Week10
+
+?
+Desc: Matches a single or zero characters.
+Syn: ls [file/folder_name]?
+Ex: ls OOP_Week?
+Output: OOP_Week1 OOP_Week2 OOP_Week3 OOP_Week4 OOP_Week5 OOP_Week6 OOP_Week7 OOP_Week8 OOP_Week9
+
+[]
+Desc: used to define character classes in the context of shell patterns or regular expressions. These character classes allow you to match any one of the characters enclosed within the brackets. 
+Syn: command (ls, cp, mv) [characters]
+Ex: ls file[1-5].txt
+Output: file1.txt file2.txt file3.txt file4.txt file5.txt
+
+&&
+Desc: used in command-line interfaces to execute multiple commands sequentially, one after the other, but only if the preceding command succeeds. It is a logical AND operator that allows you to chain commands together.
+Syn: command1 && command2
+Ex: mkdir myDirectory && cd Files_Practise
+Output: myDirectory is created && Files_Practise is opened
+
+c) Input/output redirection:
+
+|
+Desc: Standard input and standard output constitute two separate streams that can be individually manipulated by the shell. Using pipes, it is possible to give the output of one command as input to the other.
+Syn: command1 | command2
+Ex: cat trial.txt | wc -c
+Output: 1434
+
+> standard output operator
+Desc: > is the standard output operator which sends the output of any command into a file.
+Syn: command > file1
+Ex: ls > file1
+Output: Output of the ls command is sent to a file1. If the file1 doesn't exist, it is created otherwise, it is overwritten.
+
+>> appending operator
+Desc: >> operator can be used to append standard output of a command to a file.
+Syn: command >> file1
+Ex: echo "This is file2" >> file2.txt
+Output:
+cat file2.txt
+This is file2
+
+< standard input operator
+Desc: < operator allows a command to take necessary input from a file.
+Syn: command < file
+Ex: cat < file2.txt
+Output: This is file2
+
+<< document operator
+Desc: This is referred to as here document. The << operator is used for here documents or here strings. These constructs allow you to pass a block of text directly into a command as input without the need for an external file.
+Syn: command << END
+This is a block of text
+that will be passed as input to the command.
+END
+Ex: cat << EOF
+Hello,
+This is a here document in action.
+Goodbye.
+EOF
+Output:
+Hello,
+This is a here document in action.
+Goodbye.
+
+4) Vi editor commands.
+
+1) Entering insert mode:
+Desc: Switch to insert mode for typing text.
+Syn: i
+Ex: Press i to enter insert mode.
+Output: Cursor is now in insert mode, and you can type text.
+
+2) Entering append mode:
+Desc: Switch to insert mode after the cursor.
+Syn: a
+Ex: Press a to enter append mode.
+Output: Cursor is now in insert mode after the current character.
+
+3) Exiting insert mode:
+Desc: Return to command mode from insert mode.
+Syn: Esc
+Ex: Press the esc key.
+Output: Cursor is back in command mode.
+
+4) Saving changes:
+Desc: Save the changes made in the file.
+Syn: :w
+Ex: :w [Enter]
+Output: File is saved.
+
+5) Saving and quitting:
+Desc: Save changes and exit the editor.
+Syn: :wq
+Ex: :wq [Enter]
+Output: File is saved, and the editor is closed.
+
+6) Moving to beginning of file:
+Desc: Move the cursor to the start of the file.
+Syn: 0 [zero]
+Ex: Press 0
+Output: Cursor is at the beginning of the line.
+
+7) Moving to end of line:
+Desc: Move the cursor to the end of the line.
+Syn: $
+Ex: Press $
+Output: Cursor is at the end of the line.
+
+8) Pasting the text:
+Desc: Toggles paste mode, optimizing Vim for pasting large blocks of text.
+Syn: :set paste to enable paste mode
+Ex: Enable paste mode with :set paste, paste text.
+Output: In paste mode, Vim adjusts behaviour to prevent unintended formatting issues during text pasting, ensuring a smoother experience.

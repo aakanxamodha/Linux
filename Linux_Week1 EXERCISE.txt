@@ -1,0 +1,154 @@
+1) Write shell commands for the following.
+
+2) Create 11 subdirectories in your home directory under OSxxx.
+
+mkdir Week1
+mkdir Week2
+mkdir Week3
+mkdir Week4
+mkdir Week5
+mkdir Week6
+mkdir Week7
+mkdir Week8
+mkdir Week9
+mkdir Week10
+mkdir Week11
+
+3) Create subdirectory TestFolder under Week1.
+
+- cd Week1
+- mkdir TestFolder
+
+4) Create 3 different empty files in the TestFolder.
+
+- cd TestFolder
+- touch f1.txt
+- touch f2.txt
+- touch f3.txt
+
+5) Add different contents in each of them using vi editor. (say f1, f2 and f3)
+
+- vi f1.txt
+This is f1 file and the content is added using vi editor.
+
+- vi f2.txt
+This is f2 file and the content is added using vi editor.
+
+- vi f3.txt
+This is f3 file and the content is added using vi editor.
+
+6) Move back to Week1 folder and copy f1 to this location.
+
+- cd TestFolder
+- cp f1.txt ../
+
+7) Create one more file with the command listing the number of users and number of files.
+
+- Number of files: ls -l | grep ^- | wc -l >> counts.txt
+- Number of users: who | wc -l >> counts.txt
+
+Output:
+2
+Number of files: 2
+0
+Number of users: 0
+
+8) Check content of this file.
+
+cat counts.txt
+
+9) Use commands to list all the files which starts with either 'a' or 'A'.
+
+ls -l [aA]*
+
+10) Create a newfile called month_names and use sort command to sort them.
+
+- vi month_names
+January
+February
+March
+April
+May
+June
+July
+August
+September
+October
+November
+December
+
+- sort month_names
+April
+August
+December
+February
+January
+July
+June
+March
+November
+October
+September
+
+11) Display the first five and last five lines of a given file.
+
+head -5 month_names && tail -5 month_names
+
+12) Redirect the output of commands 'pwd', 'date' and 'ls' in succession to a file.
+
+pwd >> succession && date >> succession && ls succession
+
+Output:
+/home/mobaxterm/Linux
+Sun, Jan 21, 2024 8:56:42 PM
+a1.txt
+a2.txt
+a3.txt
+AA.txt
+month_names
+succession
+aakanxa1
+aakanxa2.... etc
+
+12) Exercise for vi editor commands: (Refer to next page)
+
+The core of the Linux system is the kernel. The kernel controls all of the hardware and software 
+on the computer system, allocating hardware when necessary, and executing software when 
+required.
+***
+If you’ve been following the Linux world at all, no doubt you’ve heard the name Linus Torvalds. 
+Linus is the person responsible for creating the first Linux kernel software while he was a 
+student at the University of Helsinki. He intended it to be a copy of the Unix system, at the time 
+a popular operating system used at many universities.
+***
+After developing the Linux kernel, Linus released it to the Internet community and solicited 
+suggestions for improving it. This simple process started a revolution in the world of computer 
+operating systems. Soon Linus was receiving suggestions from students as well as professional 
+programmers from around the world.
+
+For the above exercise (Ex. xiii) perform the following editor operations:
+
+a) Remove blank lines wherever the *** is found.
+
+sed '/^\*\*\*/d' linux.txt > ubuntu.txt
+
+b) Replace all occurences of the word "Linux" with "Ubuntu".
+
+sed 's/Linux/Ubuntu/g' ubuntu.txt > linux.txt
+
+c) Save and return to command line prompt.
+
+:wq
+
+d) Use command to view "Linux.txt" at the command prompt without using vi.
+
+cat linux.txt
+
+e) Rename "Linux.txt" with the name "Ubuntu.txt".
+
+mv linux.txt ubuntu.txt
+
+f) Make a copy of the same text file in the name "Linux1.txt" at command prompt.
+
+cp Linux.txt Linux1.txt
+
