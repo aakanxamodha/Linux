@@ -1,0 +1,22 @@
+1) Process related Commands: Study the meaning / function of the following.
+
+a) Process identification: PID, getpid()
+PID:
+A process ID is a unique, positive number that represents a process. Because the process ID is a unique identifier, it can be used to direct signals between processes. The process ID is also used in the tmpnam function; this function returns a temporary file name based on this unique identifier.
+
+getpid():
+returns the process ID of the calling process. This is often used by routines that generate unique temporary filenames.
+
+b) Background process: &
+&:
+The Address Operator in C is a special unary operator that returns the address of a variable. It is denoted as the Ampersand Symbol ( & ). This operator returns an integer value which is the address of its operand in the memory. We can use the address operator (&) with any kind of variables, array, strings, functions, and even pointers.
+
+c) Parent and child processes: fork(), sleep(), wait()
+fork():
+A new process is created by calling fork. This system call duplicates the current process, creating a new entry in the process table with many of the same attributes as the current process. The new process is almost identical to the original, executing the same code but with its own data space, environment, and file descriptors. Combined with the exec functions, fork is all we need to create new processes.
+
+sleep():
+Sleep is a computer program and when you call this method, then it sets the process to wait until the specified amount of time proceeds, then goes and finds some other process to run. 
+
+wait():
+A call to wait() blocks the calling process until one of its child processes exits or a signal is received. After child process terminates, parent continues its execution after wait system call instruction.
